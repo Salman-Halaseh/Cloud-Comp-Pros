@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Cloud To-Do List</h1>
+        <button id="logoutBtn" class="logout-btn" onclick="logout()" style="display:none;">Logout</button>
+    </header>
+
+    <!-- Authentication Section -->
+    <div id="auth-section" class="auth-card">
+        <h2>Welcome</h2>
+        <p class="subtitle">Sign in to manage your tasks</p>
+        <div class="form-group">
+            <input type="email" id="email" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <input type="password" id="password" placeholder="Password">
+        </div>
+        <div class="auth-buttons">
+            <button class="btn btn-primary" onclick="login()">Login</button>
+            <button class="btn btn-secondary" onclick="register()">Register</button>
+        </div>
+    </div>
+
+    <!-- To-Do Section -->
+    <div id="todo-section" style="display:none;">
+        <div class="task-input-card">
+            <h3>Add New Task</h3>
+            <div class="task-form">
+                <input type="text" id="taskInput" placeholder="What needs to be done?">
+                <select id="prioritySelect">
+                    <option value="low">Low Priority</option>
+                    <option value="medium" selected>Medium Priority</option>
+                    <option value="high">High Priority</option>
+                </select>
+                <button class="btn btn-primary" onclick="addTask()">Add Task</button>
+            </div>
+        </div>
+
+        <div class="tasks-card">
+            <h3>My Tasks</h3>
+            <ul id="taskList"></ul>
+            <p id="emptyMessage" class="empty-message">No tasks yet. Add one above!</p>
+        </div>
+    </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="config.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
